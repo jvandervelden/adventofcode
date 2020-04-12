@@ -34,6 +34,8 @@ namespace AdventOfCode2019
             Assert.AreEqual("1", day5.GetPart2Result(new string[] { "xxyxx" }));
             Assert.AreEqual("0", day5.GetPart2Result(new string[] { "uurcxstgmygtbstg" }));
             Assert.AreEqual("0", day5.GetPart2Result(new string[] { "ieodomkazucvgmuy" }));
+            Assert.AreEqual("0", day5.GetPart2Result(new string[] { "aaa" }));
+            Assert.AreEqual("1", day5.GetPart2Result(new string[] { "aaaa" }));
         }
     }
 }

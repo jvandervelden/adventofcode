@@ -55,22 +55,21 @@ namespace AdventOfCode2015
         public bool IsStringNicePart2(string input) {
             bool hasRepeatingSeq = false;
             bool hasRepeatingChar = false;
-            ISet<string> seenSequences = new HashSet<string>();
+            IDictionary<string, int> seenSequences = new Dictionary<string, int>();
 
             for (int i = 0; i < input.Length - 1; i++) {
                 if (!hasRepeatingSeq) {
                     string currentSeq = input[i] + "" + input[i + 1];
-                    if (seenSequences.Contains(currentSeq))
+                    if (seenSequences.ContainsKey(currentSeq) && seenSequences[currentSeq] != i - 1)
                         hasRepeatingSeq = true;
-                    else
-                        seenSequences.Add(currentSeq);
+                    else if (!seenSequences.ContainsKey(currentSeq)) {
+                        seenSequences.Add(currentSeq, i);
+                    }
                 }
-                if (i < input.Length - 2) {
-                    if (input[i] == input[i + 2])
+                if (!hasRepeatingChar && i < input.Length - 2 && input[i] == input[i + 2])
                         hasRepeatingChar = true;
-                }
 
-                if (hasRepeatingSeq && hasRepeatingChar)
+                if (hasRepeatingChar && hasRepeatingSeq)
                     break;
             }
 
