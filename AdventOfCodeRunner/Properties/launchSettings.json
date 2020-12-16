@@ -2,7 +2,7 @@
   "profiles": {
     "AdventOfCodeRunner": {
       "commandName": "Project",
-      "commandLineArgs": "--year 2015"
+      "commandLineArgs": "--year 2020"
     }
   }
 }

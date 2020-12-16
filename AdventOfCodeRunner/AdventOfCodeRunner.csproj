@@ -2,20 +2,24 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TargetFramework>netcoreapp5.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AdventOfCode2020\AdventOfCode2020.csproj" />
     <ProjectReference Include="..\AdventOfCode2019\AdventOfCode2019.csproj" />
     <ProjectReference Include="..\AdventOfCode2015\AdventOfCode2015.csproj" />
     <ProjectReference Include="..\AdventOfCodeCommon\AdventOfCodeCommon.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Input\2015\day1.txt">
+    <None Update="Input\2015\*.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Input\2015\day2.txt">
+    <None Update="Input\2020\*.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <!-- <None Update="Input\2015\day2.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Input\2015\day3.txt">
@@ -24,6 +28,21 @@
     <None Update="Input\2015\day4.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="Input\2015\day5.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Input\2015\day6.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Input\2015\day7.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Input\2015\day8.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Input\2015\day9.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None> -->
   </ItemGroup>
 
 </Project>

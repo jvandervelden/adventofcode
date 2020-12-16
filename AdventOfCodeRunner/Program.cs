@@ -8,6 +8,7 @@ namespace AdventOfCodeRunner
     class Program
     {
         const int ADVENT_OF_CODE_FIRST_YEAR = 2015;
+        const int ADVENT_OF_CODE_NUM_OF_DAYS = 25;
 
         static void Main(string[] args)
         {
@@ -29,7 +30,7 @@ namespace AdventOfCodeRunner
 
         static void RunYear(int year)
         {
-            for (int i = 0; i < 50; i++)
+            for (int i = 0; i < ADVENT_OF_CODE_NUM_OF_DAYS * 2; i++)
             {
                 int day = (i >> 1) + 1;
                 int part = (i & 1) + 1;
@@ -44,7 +45,8 @@ namespace AdventOfCodeRunner
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("Error running puzzle for year {0} day {1} and part {2}. Error: {3}", year, day, part, e.Message, e);
+                    Console.WriteLine("Error running puzzle for year {0} day {1} and part {2}. Error: {3}", year, day, part, e.Message);
+                    Console.WriteLine(e.StackTrace);
                 }
             }
         }
