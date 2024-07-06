@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp5.0</TargetFramework>
+    <TargetFramework>netcoreapp8.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -10,6 +10,7 @@
     <ProjectReference Include="..\AdventOfCode2019\AdventOfCode2019.csproj" />
     <ProjectReference Include="..\AdventOfCode2015\AdventOfCode2015.csproj" />
     <ProjectReference Include="..\AdventOfCodeCommon\AdventOfCodeCommon.csproj" />
+    <ProjectReference Include="..\AdventOfCode2023\AdventOfCode2023.csproj" />
   </ItemGroup>
 
   <ItemGroup>
