@@ -12,40 +12,82 @@ namespace AdventOfCodeRunner
 
         static void Main(string[] args)
         {
-            if (args.Length == 2 
-                && (args[0].ToLower().Equals("-y") || args[0].ToLower().Equals("--year"))
-                && int.TryParse(args[1], out int cmdLineYear))
+            var year = null as int?;
+            var day = null as int?;
+            
+            for (int i = 0; i < args.Length; i++)
+            {
+                
 
-                RunYear(cmdLineYear);
+                if ("--year".Equals(args[i].ToLower()) || "-y".Equals(args[i].ToLower()))
+                {
+                    // Skip next argument as it's part of this flag
+                    i++;
+                    try { 
+                        year = int.Parse(args[i]); 
+                    }
+                    catch (FormatException) 
+                    { 
+                        Console.WriteLine("Invalid year argument provided.");
+                        return; 
+                    }
+                }
+                else if ("--day".Equals(args[i].ToLower()) || "-d".Equals(args[i].ToLower()))
+                {
+                    // Skip next argument as it's part of this flag
+                    i++;
+                    try
+                    {
+                        day = int.Parse(args[i]);
+                    }
+                    catch (FormatException)
+                    {
+                        Console.WriteLine("Invalid day argument provided.");
+                        return;
+                    }
+                }
+            }
+
+            if (year.HasValue)
+            {
+                RunYear(year.Value, day);
+            }
             else
             {
                 // Process all available years
                 int maxAvailableYear = DateTime.Now.Year - (DateTime.Now.Month == 12 ? 0 : 1);
-                for (int year = ADVENT_OF_CODE_FIRST_YEAR; year <= maxAvailableYear; year++)
+                for (int i = ADVENT_OF_CODE_FIRST_YEAR; i <= maxAvailableYear; i++)
                 {
-                    RunYear(year);
+                    RunYear(i);
                 }
             }
         }
 
-        static void RunYear(int year)
+        static void RunYear(int year, int? day = null)
         {
-            for (int i = 0; i < ADVENT_OF_CODE_NUM_OF_DAYS * 2; i++)
+            Console.WriteLine("Running Advent of Code for year {0}", year);
+            if (day.HasValue)
             {
-                int day = (i >> 1) + 1;
+                Console.WriteLine("Running only day {0}", day.Value);
+            }
+            int startDay = day.HasValue ? day.Value : 1;
+            int endDay = day.HasValue ? day.Value : ADVENT_OF_CODE_NUM_OF_DAYS;
+            for (int i = (startDay - 1) * 2; i < endDay * 2; i++)
+            {
+                int dayToSolve = (i >> 1) + 1;
                 int part = (i & 1) + 1;
 
                 try
                 {
-                    Console.WriteLine("Year {0} Day {1} part {2} result: {3}", year, day, part, RunPuzzle(year, day, part));
+                    Console.WriteLine("Year {0} Day {1} part {2} result: {3}", year, dayToSolve, part, RunPuzzle(year, dayToSolve, part));
                 }
                 catch (NotImplementedException)
                 {
-                    Console.WriteLine("Year {0} Day {1} part {2} not complete yet.", year, day, part);
+                    Console.WriteLine("Year {0} Day {1} part {2} not complete yet.", year, dayToSolve, part);
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("Error running puzzle for year {0} day {1} and part {2}. Error: {3}", year, day, part, e.Message);
+                    Console.WriteLine("Error running puzzle for year {0} day {1} and part {2}. Error: {3}", year, dayToSolve, part, e.Message);
                     Console.WriteLine(e.StackTrace);
                 }
             }

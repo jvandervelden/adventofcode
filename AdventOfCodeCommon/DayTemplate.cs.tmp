@@ -1,0 +1,16 @@
+using AdventOfCodeCommon;
+
+namespace AdventOfCode2025;
+
+public class DayTemplate : IPuzzle
+{
+    public string GetPart1Result(string[] inputs)
+    {
+        return "Not Implemented Yet";
+    }
+
+    public string GetPart2Result(string[] inputs)
+    {
+        return "Not Implemented Yet";
+    }
+}

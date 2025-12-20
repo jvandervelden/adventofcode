@@ -1,10 +1,8 @@
-﻿using AdventOfCode2015;
-using AdventOfCodeCommon;
+﻿using AdventOfCodeCommon;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
-using System.Text;
 
 namespace AdventOfCodeRunner
 {

@@ -1,0 +1,28 @@
+using NUnit.Framework;
+
+namespace AdventOfCode2025
+{
+    [TestFixture]
+    public class Day2Tests
+    {
+        [Test]
+        public void SampleInputsPart1()
+        {
+            DayTemplate daySolution = new DayTemplate();
+
+            Assert.AreEqual("", daySolution.GetPart1Result([
+                ""
+            ]));
+        }
+
+        [Test]
+        public void SampleInputsPart2()
+        {
+            DayTemplate daySolution = new DayTemplate();
+
+            Assert.AreEqual("", daySolution.GetPart2Result([
+                ""
+            ]));
+        }
+    }
+}
